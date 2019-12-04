@@ -6,4 +6,4 @@ echo $KEY
 
 export GOOGLE_CREDENTIALS=`pwd`/${KEY}
 TERRAFORM_DIR=.
-terraform outputs -json ${TERRAFORM_DIR}
+terraform output -json ${TERRAFORM_DIR}

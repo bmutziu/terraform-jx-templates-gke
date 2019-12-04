@@ -51,7 +51,7 @@ resource "google_project_service" "cloudkms-api" {
 
 resource "google_container_node_pool" "jx-node-pool" {
   name       = "default-pool"
-  zone       = "${var.gcp_zone}"
+  location   = "${var.gcp_zone}"
   cluster    = "${google_container_cluster.jx-cluster.name}"
   node_count = "${var.min_node_count}"
 
@@ -86,7 +86,7 @@ resource "google_container_node_pool" "jx-node-pool" {
 resource "google_container_cluster" "jx-cluster" {
   name                     = "${var.cluster_name}"
   description              = "jx k8s cluster"
-  zone                     = "${var.gcp_zone}"
+  location                 = "${var.gcp_zone}"
   enable_kubernetes_alpha  = "${var.enable_kubernetes_alpha}"
   enable_legacy_abac       = "${var.enable_legacy_abac}"
   initial_node_count       = "${var.min_node_count}"
